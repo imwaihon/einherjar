@@ -1,17 +1,232 @@
 <!doctype html>
 <style type="text/css">
 	#mainPopup {
-		padding: 10px;
-		height: 200px;
+		height: 400px;
 		width: 400px;
 		font-family: Helvetica, Ubuntu, Arial, sans-serif;
 	}
-	h1 {
-		font-size: 2em;
+	/*!
+	* Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
+	* Copyright 2015 Daniel Cardoso <@DanielCardoso>
+	* Licensed under MIT
+	*/
+	.la-square-jelly-box,
+	.la-square-jelly-box > div {
+		position: relative;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+				box-sizing: border-box;
+	}
+	.la-square-jelly-box {
+		display: block;
+		font-size: 0;
+		color: #fff;
+		top: 152px;
+		left: 152px;
+	}
+	.la-square-jelly-box.la-dark {
+		color: #333;
+	}
+	.la-square-jelly-box > div {
+		display: inline-block;
+		float: none;
+		background-color: currentColor;
+		border: 0 solid currentColor;
+	}
+	.la-square-jelly-box {
+		width: 32px;
+		height: 32px;
+	}
+	.la-square-jelly-box > div:nth-child(1),
+	.la-square-jelly-box > div:nth-child(2) {
+		position: absolute;
+		left: 0;
+		width: 100%;
+	}
+	.la-square-jelly-box > div:nth-child(1) {
+		top: -25%;
+		z-index: 1;
+		height: 100%;
+		border-radius: 10%;
+		-webkit-animation: square-jelly-box-animate .6s -.1s linear infinite;
+		-moz-animation: square-jelly-box-animate .6s -.1s linear infinite;
+			-o-animation: square-jelly-box-animate .6s -.1s linear infinite;
+				animation: square-jelly-box-animate .6s -.1s linear infinite;
+	}
+	.la-square-jelly-box > div:nth-child(2) {
+		bottom: -9%;
+		height: 10%;
+		background: #000;
+		border-radius: 50%;
+		opacity: .2;
+		-webkit-animation: square-jelly-box-shadow .6s -.1s linear infinite;
+		-moz-animation: square-jelly-box-shadow .6s -.1s linear infinite;
+			-o-animation: square-jelly-box-shadow .6s -.1s linear infinite;
+				animation: square-jelly-box-shadow .6s -.1s linear infinite;
+	}
+	.la-square-jelly-box.la-sm {
+		width: 16px;
+		height: 16px;
+	}
+	.la-square-jelly-box.la-2x {
+		width: 64px;
+		height: 64px;
+	}
+	.la-square-jelly-box.la-3x {
+		width: 96px;
+		height: 96px;
+	}
+	/*
+	* Animations
+	*/
+	@-webkit-keyframes square-jelly-box-animate {
+		17% {
+			border-bottom-right-radius: 10%;
+		}
+		25% {
+			-webkit-transform: translateY(25%) rotate(22.5deg);
+					transform: translateY(25%) rotate(22.5deg);
+		}
+		50% {
+			border-bottom-right-radius: 100%;
+			-webkit-transform: translateY(50%) scale(1, .9) rotate(45deg);
+					transform: translateY(50%) scale(1, .9) rotate(45deg);
+		}
+		75% {
+			-webkit-transform: translateY(25%) rotate(67.5deg);
+					transform: translateY(25%) rotate(67.5deg);
+		}
+		100% {
+			-webkit-transform: translateY(0) rotate(90deg);
+					transform: translateY(0) rotate(90deg);
+		}
+	}
+	@-moz-keyframes square-jelly-box-animate {
+		17% {
+			border-bottom-right-radius: 10%;
+		}
+		25% {
+			-moz-transform: translateY(25%) rotate(22.5deg);
+				transform: translateY(25%) rotate(22.5deg);
+		}
+		50% {
+			border-bottom-right-radius: 100%;
+			-moz-transform: translateY(50%) scale(1, .9) rotate(45deg);
+				transform: translateY(50%) scale(1, .9) rotate(45deg);
+		}
+		75% {
+			-moz-transform: translateY(25%) rotate(67.5deg);
+				transform: translateY(25%) rotate(67.5deg);
+		}
+		100% {
+			-moz-transform: translateY(0) rotate(90deg);
+				transform: translateY(0) rotate(90deg);
+		}
+	}
+	@-o-keyframes square-jelly-box-animate {
+		17% {
+			border-bottom-right-radius: 10%;
+		}
+		25% {
+			-o-transform: translateY(25%) rotate(22.5deg);
+			transform: translateY(25%) rotate(22.5deg);
+		}
+		50% {
+			border-bottom-right-radius: 100%;
+			-o-transform: translateY(50%) scale(1, .9) rotate(45deg);
+			transform: translateY(50%) scale(1, .9) rotate(45deg);
+		}
+		75% {
+			-o-transform: translateY(25%) rotate(67.5deg);
+			transform: translateY(25%) rotate(67.5deg);
+		}
+		100% {
+			-o-transform: translateY(0) rotate(90deg);
+			transform: translateY(0) rotate(90deg);
+		}
+	}
+	@keyframes square-jelly-box-animate {
+		17% {
+			border-bottom-right-radius: 10%;
+		}
+		25% {
+			-webkit-transform: translateY(25%) rotate(22.5deg);
+			-moz-transform: translateY(25%) rotate(22.5deg);
+				-o-transform: translateY(25%) rotate(22.5deg);
+					transform: translateY(25%) rotate(22.5deg);
+		}
+		50% {
+			border-bottom-right-radius: 100%;
+			-webkit-transform: translateY(50%) scale(1, .9) rotate(45deg);
+			-moz-transform: translateY(50%) scale(1, .9) rotate(45deg);
+				-o-transform: translateY(50%) scale(1, .9) rotate(45deg);
+					transform: translateY(50%) scale(1, .9) rotate(45deg);
+		}
+		75% {
+			-webkit-transform: translateY(25%) rotate(67.5deg);
+			-moz-transform: translateY(25%) rotate(67.5deg);
+				-o-transform: translateY(25%) rotate(67.5deg);
+					transform: translateY(25%) rotate(67.5deg);
+		}
+		100% {
+			-webkit-transform: translateY(0) rotate(90deg);
+			-moz-transform: translateY(0) rotate(90deg);
+				-o-transform: translateY(0) rotate(90deg);
+					transform: translateY(0) rotate(90deg);
+		}
+	}
+	@-webkit-keyframes square-jelly-box-shadow {
+		50% {
+			-webkit-transform: scale(1.25, 1);
+					transform: scale(1.25, 1);
+		}
+	}
+	@-moz-keyframes square-jelly-box-shadow {
+		50% {
+			-moz-transform: scale(1.25, 1);
+				transform: scale(1.25, 1);
+		}
+	}
+	@-o-keyframes square-jelly-box-shadow {
+		50% {
+			-o-transform: scale(1.25, 1);
+			transform: scale(1.25, 1);
+		}
+	}
+	@keyframes square-jelly-box-shadow {
+		50% {
+			-webkit-transform: scale(1.25, 1);
+			-moz-transform: scale(1.25, 1);
+				-o-transform: scale(1.25, 1);
+					transform: scale(1.25, 1);
+		}
 	}
 </style>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
 <div id="mainPopup">
-<h1>Hello extensionizr!</h1>
-<p>To shut this popup down, edit the manifest file and remove the "default popup" key. To edit it, just edit ext/browser_action/browser_action.html. The CSS is there, too.</p>
+	<nav class="navbar fixed-top" style="background-color: #f2c700;">
+		<a class="navbar-brand">Einherjar</a>
+	</nav>
+	<div class="d-flex flex-column" style="margin-top: 85px; height: 300px;">
+		<div id="loading" class="p-2" style="display: none">
+			<div style="color: #f2c700" class="la-square-jelly-box la-3x">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div id="result" class="p-2" style="display: block">
+			<div style="color: red" class="la-square-jelly-box la-3x">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<nav class="navbar fixed-bottom" style="background-color: #f2c700;">
+	</nav>
 </div>
