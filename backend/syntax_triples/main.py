@@ -145,6 +145,16 @@ def show_triple(tokens, text, triple):
         print('| {:<28s} | {:<10s} | {:<28s} |'.format(
             l or '', m or '', r or ''))
 
+def show_triple_modified(tokens, text, triple):
+    nsubj, verb, dobj = triple
+
+    # Extract the text for each element of the triple.
+    nsubj_text = phrase_text_for_head(tokens, text, nsubj)
+    verb_text = tokens[verb]['text']['content']
+    dobj_text = phrase_text_for_head(tokens, text, dobj)
+
+    return [nsubj_text, verb_text, dobj_text]
+
 
 def main(text_file):
     # Extracts subject-verb-object triples from the given text file,
@@ -158,6 +168,15 @@ def main(text_file):
 
     for triple in find_triples(tokens):
         show_triple(tokens, text, triple)
+
+def parseText(text):
+    analysis = analyze_syntax(text)
+    tokens = analysis.get('tokens', [])
+    triplets = []
+
+    for triple in find_triples(tokens):
+        triplets.append(show_triple_modified(tokens, text, triple))
+    return triplets
 
 
 if __name__ == '__main__':
