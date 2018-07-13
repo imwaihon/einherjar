@@ -11,3 +11,16 @@ chrome.extension.onMessage.addListener(
   	chrome.pageAction.show(sender.tab.id);
     sendResponse();
   });
+
+// chrome.browserAction.onClicked.addListener(function (tab) {
+//   // for the current tab, inject the "inject.js" file & execute it
+//   chrome.tabs.executeScript(tab.id, {
+//     file: "js/axios.min.js"
+//   }).then(
+//     function() {
+//       chrome.tabs.executeScript(tab.id, {
+//         file: 'injected.js'
+//       });
+//     }
+//   );
+// });

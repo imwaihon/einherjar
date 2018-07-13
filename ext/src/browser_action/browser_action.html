@@ -204,29 +204,30 @@
 </style>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script type="text/javascript" src="injected.js"></script>
+<script type="text/javascript" src="../../js/axios.min.js"></script>
 
 <div id="mainPopup">
 	<nav class="navbar fixed-top" style="background-color: #f2c700;">
 		<a class="navbar-brand">Einherjar</a>
 	</nav>
 	<div class="d-flex flex-column" style="margin-top: 85px; height: 300px;">
+		<div id="rest" class="p-2" style="display: block">
+			<button type="button" class="btn btn-success tryButton">Try</button>
+		</div>
 		<div id="loading" class="p-2" style="display: none">
 			<div style="color: #f2c700" class="la-square-jelly-box la-3x">
 				<div></div>
 				<div></div>
 			</div>
 		</div>
-		<div id="result" class="p-2" style="display: block">
-			<div style="color: red" class="la-square-jelly-box la-3x">
-				<div></div>
-				<div></div>
-			</div>
+		<div id="result" class="p-2" style="display: none">
+			<ul class="list-group">
+				<li class="list-group-item">Stance Detection</li>
+				<li class="list-group-item">Fact Check</li>
+				<li class="list-group-item">Sentiment Analysis</li>
+				<li class="list-group-item">Reputation Score</li>
+			</ul>
 		</div>
 	</div>
-	<nav class="navbar fixed-bottom" style="background-color: #f2c700;">
-	</nav>
 </div>
