@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import requests
 import syntax_triples.main
+import sentiment.main
 
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ def main():
 @app.route('/parse', methods=['POST'])
 def parse():
     return jsonify({
-        'factCheck': parseFactCheck(request.json['textPayload']) 
+        'factCheck': parseFactCheck(request.json['textPayload']),
+        'sentiment': parseSentimentAnalysis(request.json['textPayload']) 
     })
 
 def parseFactCheck(text_payload):
@@ -34,7 +36,8 @@ def parseFactCheck(text_payload):
         newsitems = soup.select('.noresults')
         if not newsitems:
             return True
-        return False
+    return False
 
 def parseSentimentAnalysis(text_payload):
-    print('lol')
+    score, magnitude = sentiment.main.analyzeText(text_payload)
+    return [score, magnitude]
