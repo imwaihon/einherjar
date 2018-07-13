@@ -48,7 +48,7 @@ $ python main.py <path-to-text-file>
 Try this on a sample text in the resources directory:
 
 ```
-$ python main.py resources/obama_wikipedia.txt
+$ python main.py resources/obama_wikipedia.txt >> results.txt
 ```
 
 ## A walkthrough of the example and its results
