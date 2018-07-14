@@ -28,14 +28,25 @@ setTimeout(function() {
 		});
 	}
 
+
 	const elements = document.getElementsByClassName('tryButton');
-	console.log(elements[0]);
-	if (elements.length > 0) {
+	if (elements) {
+		elements[0].innerText = 'Most Singapore Ministers agrees with MOE implementation of parking fees for teachers';
 		elements[0].addEventListener('click', function(event) {
 			event.preventDefault();
+			getScores('Most Singapore Ministers agrees with MOE implementation of parking fees for teachers');
+		}, true);
+
+		elements[1].innerText = "Geylang Bazaar stall sells 'plastic' keropok";
+		elements[1].addEventListener('click', function(event) {
+			event.preventDefault();
 			getScores("Geylang Bazaar stall sells 'plastic' keropok")
-			//getScores('Most Singapore Ministers agrees with MOE implementation of parking fees for teachers');
-			//getScores('Singapore’s national reserves - Goverment says: We need to save what we can')
+		}, true);
+
+		elements[2].innerText = 'Singapores national reserves - Goverment says: We need to save what we can';
+		elements[2].addEventListener('click', function(event) {
+			event.preventDefault();
+			getScores('Singapores national reserves - Goverment says: We need to save what we can')
 		}, true);
 	}
 }, 1000);
