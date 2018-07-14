@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSSample</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(function() {
+        var params = {
+            // Request parameters
+            "autocorrect": "false",
+            "PII": "false",
+            "classify": "True",
+            "language": "eng",
+        };
+      
+/* 
+Useful info for the Azure Content Moderator API response result: 
+
+- Category1 refers to potential presence of language that may be considered sexually explicit or adult in certain situations.
+- Category2 refers to potential presence of language that may be considered sexually suggestive or mature in certain situations.
+- Category3 refers to potential presence of language that may be considered offensive in certain situations.
+- Score is between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This preview relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
+- ReviewRecommended is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
+
+
+refer to: 
+1. https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/text-moderation-api
+2. https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f
+3. https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/try-text-api
+
+*/
+
+
+        $.ajax({
+            url: "https://southeastasia.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessText/Screen?" + $.param(params),
+            beforeSend: function(xhrObj){
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type","text/plain");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6aec41a4dbea4e81b6d64b9ff771e66d");
+            },
+            type: "POST",
+            // Request body
+
+            //Insert the text data below
+            data: "Is this a crappy and shit email that is really horrible and absolutely distasteful!",
+        })
+        .done(function(data) {
+            alert("success");
+            var jsonObj = data;
+            var profanity;
+                var reviewRecommended = jsonObj["Classification"]["ReviewRecommended"];
+                var sexuallyExplicit = jsonObj["Classification"]["Category1"]["Score"];
+                var sexuallySuggestive = jsonObj["Classification"]["Category2"]["Score"];
+                var offensive = jsonObj["Classification"]["Category3"]["Score"];
+                var originalText = jsonObj["OriginalText"];
+                var profanityWords = jsonObj["Terms"];
+                for (i = 0; i< profanityWords.length; i++){
+                    //do something to the profanity words
+                    console.log(profanityWords[i]["Term"] + " printed out profanity words");
+                }
+
+            console.log(reviewRecommended + " review");
+            console.log(originalText + " originalText");
+             console.log(sexuallyExplicit + " sexuallyExplicit");
+              console.log(sexuallySuggestive + " sexuallySuggestive");
+               console.log(offensive + " offensive");
+            var string = JSON.stringify(jsonObj);
+             console.log(string + " DATAA");
+        })
+        .fail(function() {
+            alert("error");
+        });
+    });
+</script>
+</body>
+</html>
